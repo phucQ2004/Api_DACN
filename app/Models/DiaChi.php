@@ -21,7 +21,17 @@ class DiaChi extends Model
     }
 
     // Các cột cho phép gán giá trị
-    protected $fillable = ['ID_khach_hang', 'Ten_day_du', 'So_dien_thoai', 'Dia_chi', 'Mac_dinh', 'Mo_ta'];
+    // protected $fillable = ['ID_khach_hang', 'Ten_day_du', 'So_dien_thoai', 'Dia_chi', 'Mac_dinh', 'Mo_ta'];
+
+    protected $fillable = [
+        'id_khach_hang',
+        'ten_day_du',
+        'so_dien_thoai',
+        'dia_chi',
+        'mac_dinh',
+        'mo_ta',
+    ];
+    
 
     public $timestamps = false; // Bỏ timestamps nếu bảng không có created_at và updated_at
 }
