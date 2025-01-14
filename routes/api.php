@@ -57,6 +57,11 @@ Route::prefix('danhmuc')->group(function () {
 Route::prefix('diachi')->group(function () {
     Route::get('all', [DiaChiController::class, 'getAll']); // Lấy danh sách dịa chỉ
     Route::get('{ID_dia_chi}', [DiaChiController::class, 'getDiaChi']); // Lấy địa chỉ theo ID
+    Route::post('/add/{ID_khach_hang}', [DiaChiController::class, 'addDiaChi']);
+    Route::put('/update/{ID_dia_chi}', [DiaChiController::class, 'updateDiaChi']);
+    Route::get('/all/{ID_khach_hang}', [DiaChiController::class, 'getDiaChiByKhachHang']);
+    Route::delete('/delete/{ID_dia_chi}', [DiaChiController::class, 'deleteDiaChi']);
+
 });
 
 //Bảng hãng
