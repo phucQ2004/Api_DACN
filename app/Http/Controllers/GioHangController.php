@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\DonHang;
+use App\Models\ChiTietDonHang;
+
 use App\Models\Chitietgiohang;
 use App\Models\Giohang;
 use App\Models\Sanpham;
@@ -167,4 +170,8 @@ class GioHangController extends Controller
             'data' => $chitietgiohang,
         ]);
     }
+    
 }
+
+
+

@@ -18,6 +18,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\GioHangController;
 use App\Http\Controllers\ChitietGiohangController;
+use App\Http\Controllers\DonHangController;
+use App\Http\Controllers\ChiTietDonHangController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -105,17 +107,21 @@ Route::prefix('gio-hang')->group(function () {
     Route::get('/xem/{ID_khach_hang}', [GioHangController::class, 'viewCart']);
     //Cập nhậtnhật
     Route::put('/cap-nhat/{ID_khach_hang}/{ID_san_pham}', [GioHangController::class, 'updateCartItem']);
+
 });
 
-// ==================== Routes cho ChitietGiohang ====================
 
-// Thêm sản phẩm vào chi tiết giỏ hàng (nếu cần route riêng)
-Route::post('/chitietgiohang/{ID_gio_hang}/{ID_san_pham}', [ChitietGiohangController::class, 'addProductToCartDetails']);
 
-// Xóa sản phẩm khỏi chi tiết giỏ hàng
-Route::delete('/chitietgiohang/{ID_gio_hang}/{ID_san_pham}', [ChitietGiohangController::class, 'removeProductFromCartDetails']);
+Route::prefix('donhang')->group(function () {
+    Route::post('/create/{ID_khach_hang}', [DonHangController::class, 'createOrder']);
+    Route::get('/list/{ID_khach_hang}', [DonHangController::class, 'viewOrders']);
+    Route::put('/update/{ID_don_hang}', [DonHangController::class, 'updateOrderStatus']);
+});
 
-// Xem sản phẩm trong chi tiết giỏ hàng
-Route::get('/chitietgiohang/{ID_gio_hang}', [ChitietGiohangController::class, 'viewCartDetails']);
+Route::prefix('chitietdonhang')->group(function () {
+    Route::get('/view/{ID_don_hang}', [ChiTietDonHangController::class, 'viewOrderDetails']);
+});
+
+
 
 

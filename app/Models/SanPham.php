@@ -32,6 +32,11 @@ class SanPham extends Model
      {
          return $this->belongsTo(DanhMuc::class, 'ID_danh_muc', 'ID_danh_muc');
      }
+     // Quan hệ với bảng ChiTietDonHang
+     public function chitietdonhang()
+     { 
+            return $this->hasMany(ChiTietDonHang::class, 'ID_san_pham', 'ID_san_pham');
+     }
 
     // Các cột cho phép gán giá trị
     protected $fillable = ['Ten', 'Mo_ta', 'So_luong_ton', 'ID_hang', 'ID_danh_muc', 'Trang_thai', 'Thuong_hieu', 'Chat_lieu_day', 'Kich_thuoc_mat', 'Chong_nuoc', 'Bao_hanh'];

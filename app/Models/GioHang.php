@@ -26,4 +26,8 @@ class Giohang extends Model
     {
         return $this->belongsTo(Khachhang::class, 'ID_khach_hang', 'ID_khach_hang');
     }
+    public function donhang()
+    { 
+        return $this->hasMany(DonHang::class, 'ID_khach_hang', 'ID_khach_hang'); 
+    }
 }

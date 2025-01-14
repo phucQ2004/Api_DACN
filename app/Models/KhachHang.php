@@ -37,5 +37,19 @@ class KhachHang extends Model
     {
         return $this->hasMany(DiaChi::class, 'ID_khach_hang', 'ID_khach_hang');
     }
+    /**
+     * Mối quan hệ 1-1 giỏ hàng
+     */
+    public function gioHang() 
+    { 
+        return $this->hasOne(GioHang::class, 'ID_khach_hang', 'ID_khach_hang'); 
+    }
+    /**
+     * Mối quan hệ 1-1 đon hàng
+     */
+    public function donHang() 
+    { 
+        return $this->hasMany(DonHang::class, 'ID_khach_hang', 'ID_khach_hang'); 
+    }
 }
 
