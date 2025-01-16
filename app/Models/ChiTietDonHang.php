@@ -29,4 +29,5 @@ class ChiTietDonHang extends Model
     {
         return $this->belongsTo(SanPham::class, 'ID_san_pham');
     }
+    public $timestamps = false;
 }

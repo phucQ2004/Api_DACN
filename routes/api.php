@@ -113,14 +113,12 @@ Route::prefix('gio-hang')->group(function () {
 
 
 Route::prefix('donhang')->group(function () {
-    Route::post('/create/{ID_khach_hang}', [DonHangController::class, 'createOrder']);
+    Route::post('/them/{ID_khach_hang}', [DonHangController::class, 'createOrder']);
     Route::get('/list/{ID_khach_hang}', [DonHangController::class, 'viewOrders']);
     Route::put('/update/{ID_don_hang}', [DonHangController::class, 'updateOrderStatus']);
 });
 
-Route::prefix('chitietdonhang')->group(function () {
-    Route::get('/view/{ID_don_hang}', [ChiTietDonHangController::class, 'viewOrderDetails']);
-});
+Route::post('/donhang/chitiet/them/{ID_don_hang}', [DonHangController::class, 'addOrderDetails']);
 
 
 
